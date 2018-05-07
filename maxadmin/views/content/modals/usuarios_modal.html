@@ -1,0 +1,79 @@
+<!--Add Modal-->
+<div id="addUsuario" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true" class="modal fade text-left">
+  <div role="document" class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 id="ModalLabel" class="modal-title">Agregar Usuario</h5>
+        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+      </div>
+      <div class="modal-body">
+        <form id="formUsuarios">
+
+            <div class="form-group col-md-12 mb-3">
+              <label>Nombre</label>
+              <input type="text" placeholder="Nombre" name="nombre" id="nombre" class="form-control">
+            </div>
+            <div class="form-group col-md-12 mb-3">
+              <label>Usuario</label>
+              <input type="text" placeholder="Usuario" name="usuario" id="usuario" class="form-control">
+            </div>
+            
+          <div class="form-group col-md-12 mb-3">       
+            <label>Contraseña</label>
+            <input type="password" placeholder="Contraseña" name="password" id="password" class="form-control">
+          </div>
+
+          <div class="pull-right">
+            
+            <button type="submit" data-dismiss="modal" id="btnAddUsuarios" class="btn btn-primary">Agregar Usuario</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Update Modal-->
+<div id="updateUsuario" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true" class="modal fade text-left">
+  <div role="document" class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 id="ModalLabel" class="modal-title">Modificar Usuario</h5>
+        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+      </div>
+      <div class="modal-body">
+        <form id="formUsuariosu">
+          
+            <input type="text" name="idu" id="idu"  hidden="" class="form-control">
+            <div class="form-group col-md-12 mb-3">
+              <label>Nombre</label>
+              <input type="text" placeholder="Nombre" name="nombreu" id="nombreu"  class="form-control">
+            </div>
+            <div class="form-group col-md-12 mb-3">
+              <label>Usuario</label>
+              <input type="text" placeholder="Usuario" name="usuariou" id="usuariou" class="form-control">
+            </div>
+           <div class="form-group row">
+              <div class="col-sm-1"></div>
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="isChecked" name="pswrd">
+                  <label class="form-check-label" for="isChecked">
+                    ¿Cambiar Contraseña?
+                  </label>
+                </div>
+              </div>
+            </div>
+          <div class="form-group col-md-12 mb-3"  id="mostrar">       
+            <label>Contraseña</label>
+            <input type="password" placeholder="Contraseña" name="passwordu" id="passwordu" class="form-control">
+          </div>
+
+          <div class="pull-right">
+            <button type="submit" data-dismiss="modal" id="btnUpdateUsuarios" class="btn btn-primary">Modificar Usuario</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

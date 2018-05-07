@@ -1,6 +1,9 @@
+
 <?php 
   session_start();
   $bandera = false;
+
+  /* Comprueba si hay una sesion activa */
   if(isset($_SESSION['name']) == true && isset($_SESSION['activo']) == true){
       $bandera = true;
   }
@@ -42,10 +45,8 @@
 </html>
 
 
-<!--    ## Redireccionador ##   -->
+<!--    ## MUESTRA CONTENIDO SEGUN LA OPCION SELECCIONADA DEL MENU ##   -->
   <?php 
-
-    
     function mostrarContenido()
     {
       if(isset($_GET['op'])){
@@ -54,19 +55,29 @@
             case 'home':
               include "home.php";
               break;
-           /* case 'productos':
-              include "views/productos.php";  
+            case 'productos':
+              include "productos.php";
               break;
-            case 'proveedores':
-              include 'views/proveedores.php';
-              break;
+           /*
             default:
             echo "<br><center><h2>Pagina No Encontrada!</h2></center>";
               break;*/
+            case 'categorias':
+              include 'categorias.php';
+              break;
+            case 'proveedores':
+              include 'proveedores.php';
+              break;  
+            case 'usuarios':
+              include "usuarios.php";
+              break;
+            case 'marcas':
+              include "marcas.php";
+              break;
           }
-      }else{
-        include 'views/dashboard.php';
       }
      
     }
+
+   
    ?>

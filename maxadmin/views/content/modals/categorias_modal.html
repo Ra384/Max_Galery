@@ -1,0 +1,51 @@
+<!--Add Modal-->
+<div id="addCategorias" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true" class="modal fade text-left">
+  <div role="document" class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 id="ModalLabel" class="modal-title">Agregar Categorias</h5>
+        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+      </div>
+      <div class="modal-body">
+        <form id="formCategorias">
+
+            <div class="form-group col-md-12 mb-3">
+              <label>Nombre</label>
+              <input type="text" placeholder="Nombre" name="nombre" id="nombre" class="form-control">
+            </div>
+           
+          <div class="pull-right">
+            
+            <button type="submit" data-dismiss="modal" id="btnAddCategorias" class="btn btn-primary">Agregar Categoria</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Edit Modal-->
+<div id="updateCategorias" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true" class="modal fade text-left">
+  <div role="document" class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 id="ModalLabel" class="modal-title">Actualizar Categoria</h5>
+        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+      </div>
+      <div class="modal-body">
+        <form id="formCategoriasu">
+            <input type="text" name="idu" id="idu" hidden="">
+            <div class="form-group col-md-12 mb-3">
+              <label>Nombre</label>
+              <input type="text" placeholder="Nombre" name="nombreu" id="nombreu" class="form-control">
+            </div>
+           
+          <div class="pull-right">
+            
+            <button type="submit" data-dismiss="modal" id="btnUpdateCategorias" class="btn btn-primary">Actualizar Categoria</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

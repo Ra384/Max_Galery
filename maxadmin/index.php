@@ -2,9 +2,11 @@
 	session_start();
 	$bandera = false;
 	
+	/* VALIDA SI LOS DATOS INGRESADOS EN EL LOGIN SON CORRECTOS O NO*/
 	if(isset($_GET['error']))
 		$bandera = true;
 
+	/*SI LA SESION ESTA ACTIVA DA ACCESO AL SISTEMA*/
 	if(isset($_SESSION['activo']))
 	{
 		header("Location: views/max.php?op=home");
@@ -24,9 +26,11 @@
 	<br><br><br><br>
 	<h1 align="center">Inicio de Sesión</h1>
 	<div class="wrap">
+		<!-- ** FORMULARIO LOGIN** -->
 		<form action="controller/verificarLogin.php" method="POST">
-			<input type="text" name="usuario" id="usuario" placeholder="Usuario" value="" required>
-			<input type="password" name="contraseña" id="contraseña" placeholder="Contraseña" value="" required>
+			<input type="text" name="usuario" id="usuario" placeholder="Usuario" required>
+			<input type="password" name="password" id="password" placeholder="Contraseña" required>
+			<!-- == VALIDA SI HAY ERROR EN DATOS INGRESADOS ==-->
 			<?php if ($bandera): ?>
 				<div class="alert error">
 					ERROR :: USUARIO Y/O CONTRASEÑA INCORRECTA

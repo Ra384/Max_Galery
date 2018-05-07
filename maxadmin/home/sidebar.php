@@ -2,7 +2,7 @@
   <div class="side-navbar-wrapper">
     <div class="sidenav-header d-flex align-items-center justify-content-center">
       <div class="sidenav-header-inner text-center"><img src="../img/user1.jpg" alt="person" class="img-fluid rounded-circle">
-        <h2 class="h5 text-uppercase">Usuario</h2><span class="text-uppercase">Administrador</span>
+        <h2 class="h5 text-uppercase"><?php if($bandera) echo $_SESSION['name']; else echo ""; ?></h2><span class="text-uppercase"></span>
       </div>
       <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>M</strong><strong class="text-primary">AX</strong></a></div>
     </div>
@@ -10,23 +10,24 @@
       <ul id="side-main-menu" class="side-menu list-unstyled">                  
         <li class="<?php if ($_GET['op']=='home' || isset($_GET['op'])==false): ?> active <?php else: ?> <?php endif ?>"><a href="max.php?op=home"> <i class="icon-home"></i><span>Home</span></a></li>
 
-        <li class="<?php if ($_GET['op']=='productos'): ?> active <?php else: ?> <?php endif ?>"><a href="index.php?op=productos" id="productos"> 
+        <li class="<?php if ($_GET['op']=='productos'): ?> active <?php else: ?> <?php endif ?>"><a href="max.php?op=productos" id="productos"> 
           <i class="fab fa-product-hunt" aria-hidden="true"></i>
           <span>Productos</span></a>
         </li>
-        <li class="<?php if ($_GET['op']=='proveedores'): ?> active <?php else: ?> <?php endif ?>"><a href="index.php?op=proveedores" id="proveedores">
+        <li class="<?php if ($_GET['op']=='proveedores'): ?> active <?php else: ?> <?php endif ?>"><a href="max.php?op=proveedores" id="proveedores">
           <i class="fas fa-users" aria-hidden="true"></i> 
-          
           <span>Proveedores</span></a>
         </li>
-        <li class=""><a href="#categorias" id="categorias"> 
+        <li class="<?php if ($_GET['op']=='categorias' || isset($_GET['op'])==false): ?> active <?php else: ?> <?php endif ?>"><a href="max.php?op=categorias" id="categorias"> 
             <i class="fas fa-tags" aria-hidden="true"></i>
             <span>Categorias</span></a>
         </li>
-        <li class=""><a href="#marcas" id="marcas"> 
+        <li class="<?php if ($_GET['op']=='marcas' || isset($_GET['op'])==false): ?> active <?php else: ?> <?php endif ?>"><a href="max.php?op=marcas" id="marcas"> 
             <i class="fas fa-trademark" aria-hidden="true"></i>
             <span>Marcas</span></a>
         </li>
+        <li class="<?php if ($_GET['op']=='usuarios' || isset($_GET['op'])==false): ?> active <?php else: ?> <?php endif ?>">
+          <a href="max.php?op=usuarios"> <i class="fas fa-user"></i><span>Usuarios</span></a></li>
       </ul>
       
     </div>
