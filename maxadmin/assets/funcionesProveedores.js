@@ -1,14 +1,17 @@
 $(document).ready(function(){ 
-    
+    var regex = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
     /* == Enviar Datos al Controlador por AJAX para Agregar Proveedores a la BD== */
     $('#btnAddProveedores').click(function(){
       if($('#nombre').val().length == "" || 
         $('#compania').val().length == "" || 
-        $('#dir').val().length == ""|| 
+        $('#dir').val().length == "" || 
         $('#cp').val().length == "" || 
-        $('#tel').val().length == ""||
+        $('#tel').val().length == "" ||
         $('#correo').val().length == ""){
         alertify.alert("Error","Campos Vacios!");
+        return false;
+      }else if(regex.test($('#correo').val().trim())==false){
+        alertify.alert('Correo','Dirección de Correo invalida!');
         return false;
       }
 

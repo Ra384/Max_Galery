@@ -19,6 +19,11 @@
         return false;
       }
 
+      if($('#password').val().length < 8){
+        alertify.alert("Contraseña","La contraseña debe tener como minimo 8 Caracteres!");
+        return false;
+      }
+
       datos = $('#formUsuarios').serialize(); //Obtener Datos del Formulario 
 
       /*Envio de Datos por AJAX*/
@@ -31,7 +36,7 @@
              $('#tabla').load('content/tabla_usuarios.php');
              alertify.success("Agregado Correctamente!!");
           }else{
-            alertify.error("Algo Salió Mal!");
+            alertify.error("Nombre y/o usuario existente! USUARIO NO AGREGADO :(");
           }
         }
       });

@@ -27,11 +27,11 @@
             </div>
             <div class="form-group col-md-12 mb-3">
               <label>Telefono</label>
-              <input type="text" placeholder="Telefono" name="tel" id="tel" class="form-control form-control-sm">
+              <input type="text" placeholder="Telefono" maxlength="10" onkeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" name="tel" id="tel" class="form-control form-control-sm">
             </div>
             <div class="form-group col-md-12 mb-3">
               <label>Correo Electronico</label>
-              <input type="mail" placeholder="Correo Electronico" name="correo" id="correo" class="form-control form-control-sm">
+              <input type="email" placeholder="Correo Electronico" name="correo" id="correo" class="form-control form-control-sm">
             </div>
           <div class="pull-right">
             <button type="submit" data-dismiss="modal" id="btnAddProveedores" class="btn btn-primary">Agregar Proveedor</button>
