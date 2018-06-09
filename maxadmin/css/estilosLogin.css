@@ -6,6 +6,11 @@
 	box-sizing: border-box;
 }
 
+body{
+	background: darkgray;
+
+	 
+}
 
 .wrap{
 	width: 90%;
@@ -15,24 +20,24 @@
 
 form{
 	width: 100%;
-	margin: 20px 0;
-	padding: 20px;
+	margin: 30px 0;
+	padding: 50px;
 	background: #fff;
 	overflow: hidden;
-	box-shadow: 0 0 3px grey;
-	border-top: 4px solid #536DFE;
+	box-shadow: 0 0 5px rgb(22, 21, 21);
+	border-top: 8px solid rgb(9, 37, 194);
 }
 
 form input[type="text"],
 form input[type="email"],
 form input[type="password"],
 form textarea{
-	border: 1px solid #536DFE;
+	border: 1px solid rgb(9, 37, 194);
 	border-radius: 2px;
-	padding: 16px;
+	padding: 14px;
 	width: 100%;
 	display: block;
-	margin-bottom: 20px;
+	margin-bottom: 15px;
 	font-family: "Roboto", Arial, sans-serif, helvetica;
 	font-size: 1em;
 	color: #141938;
@@ -85,7 +90,7 @@ form input[type="submit"]{
 }
 
 form input[type="submit"]:hover{
-	background: #E64A19;
+	background: rgb(250, 61, 3);
 
 }
 
