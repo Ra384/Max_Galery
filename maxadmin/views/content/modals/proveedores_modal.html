@@ -23,7 +23,7 @@
             </div>
             <div class="form-group col-md-12 mb-3">
               <label>Código Postal</label>
-              <input type="text" placeholder="Código Postal" name="cp" id="cp" class="form-control form-control-sm">
+              <input type="text" placeholder="Código Postal" onkeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" name="cp" id="cp" class="form-control form-control-sm">
             </div>
             <div class="form-group col-md-12 mb-3">
               <label>Telefono</label>
@@ -67,11 +67,11 @@
             </div>
             <div class="form-group col-md-12 mb-3">
               <label>Código Postal</label>
-              <input type="text" placeholder="Código Postal" name="cpu" id="cpu" class="form-control form-control-sm">
+              <input type="text" placeholder="Código Postal" onkeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" name="cpu" id="cpu" class="form-control form-control-sm">
             </div>
             <div class="form-group col-md-12 mb-3">
               <label>Telefono</label>
-              <input type="text" placeholder="Telefono" name="telu" id="telu" class="form-control form-control-sm">
+              <input type="text" placeholder="Telefono" onkeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" name="telu" id="telu" class="form-control form-control-sm">
             </div>
             <div class="form-group col-md-12 mb-3">
               <label>Correo Electronico</label>

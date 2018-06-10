@@ -38,6 +38,7 @@ $(document).ready(function(){
     /* == Enviar Datos al Controlador por AJAX para Modificar Proveedores en la BD== */
     
     $('#btnUpdateProveedores').click(function(){
+      
       if($('#nombreu').val().length == "" || 
         $('#companiau').val().length == "" || 
         $('#diru').val().length == ""|| 
@@ -45,6 +46,9 @@ $(document).ready(function(){
         $('#telu').val().length == ""||
         $('#correou').val().length == ""){
         alertify.alert("Error","Campos Vacios!");
+        return false;
+      }else if(regex.test($('#correou').val().trim())==false){
+        alertify.alert('Correo','Dirección de Correo invalida!');
         return false;
       }
 

@@ -7,7 +7,7 @@
         $('#passwordu').val("");
         $('#mostrar').show();
       }else{
-        $('#passwordu').val("sa");
+        $('#passwordu').val("sasasasasaassasaas");
         $('#mostrar').hide();
       }
     });
@@ -51,6 +51,11 @@
         return false;
       }
 
+      if($('#passwordu').val().length < 8){
+        alertify.alert("Contraseña","La contraseña debe tener como minimo 8 Caracteres!");
+        return false;
+      }
+
       datos = $('#formUsuariosu').serialize();
 
       $.ajax({
@@ -73,7 +78,7 @@
  /* FUNCION AGREGAR DATOS AL FORMULARIO */
     function obtenerDatosUsuarios(id){
       $('#isChecked').prop('checked', false); 
-      $('#passwordu').val("vacio");
+      $('#passwordu').val("CampoVacio");
       $('#mostrar').hide();
       $.ajax({
         type:"POST",

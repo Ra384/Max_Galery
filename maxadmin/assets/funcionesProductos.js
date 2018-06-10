@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+
 	$('#btnAddProductos').click(function(){
 		if(
 		  $('#codigo').val().length == "" || 
@@ -28,7 +29,42 @@ $(document).ready(function(){
       			}
       		}
       	});
-	});
+  });
+  
+  //Actualizar productos
+  $('#btnUpdateProductos').click(function(){
+    //Valido que no haya campos vacios
+    if
+    (
+      $('#codigoup').val().length=="" ||
+      $('#nombreup').val().length=="" ||
+      $('#descripcionup').val().length=="" ||
+      $('#descripcion2up').val().length=="" ||
+      $('#cantidadup').val().length=="" ||
+      $('#precioup').val().length=="" 
+    )
+    {
+      alertify.alert("Error","Campos Vacios!");
+      return false;
+    }
+
+    //Obtengo datos de formulario para mandarlos al controlador
+    data = $('#formProductosup').serialize();
+
+    $.ajax({
+      type: "POST",
+      data: data,
+      url: "../controller/productos/updateProducto.php",
+      success:function(response){
+        if(response==1){
+          $('#tabla').load('content/tabla_productos.php');
+          alertify.success("Actualizado Correctamente!!");
+        }else{
+          alertify.error("Algo salio Mal");
+        }
+      }
+    });
+  });
 
     //Evento cuando se activa el radio de imagenes
    $('#imgCheck').change(function(){
@@ -59,16 +95,9 @@ $(document).ready(function(){
       if($(this).prop('checked')){
         $('#imgs').hide();
         $('#campos').hide();
-
         $('#addimgs').show();
-        
-       
-
       }
    }); 
-
-
-
 });
 
 function obtenerDatosProductos(id){
@@ -83,9 +112,6 @@ function obtenerDatosProductos(id){
        dictDefaultMessage: "Arrastra los archivos aquí para subirlos o haz click!",
          init: function() {
               dzClosure = this; // Makes sure that 'this' is understood inside the functions below.
-
-            
-
               //send all the form data along with the files:
               this.on("sending", function(data, xhr, formData) {
                  formData.append("idproducto", $("#idurl").val());
@@ -93,10 +119,6 @@ function obtenerDatosProductos(id){
         }
 
       };
-     
-
-
-     
       $.ajax({
         type:"POST",
         data:"id="+id,
@@ -134,18 +156,18 @@ function obtenerDatosActualizar(id){
     url:"../controller/productos/getDataUpdate.php",
     success:function(response){
       if (response) {
+        
         datos = jQuery.parseJSON(response);
-        
-        
+        $('#idup').val(datos['idproductos']);
         $('#codigoup').val(datos['codigo']);
         $('#nombreup').val(datos['nombre']);
         $('#descripcionup').val(datos['descripcion_corta']);
         $('#descripcion2up').val(datos['descripcion_completa']);
         $('#cantidadup').val(datos['cantidad']);
         $('#precioup').val(datos['precio']);
-       // $('#marcaup').text(datos['marcas_idmarcas']);
-       // $('#categoriaup').text(datos['categorias_idcategorias']);
-       // $('#proveedoreup').text(datos['proveedores_idproveedores']);
+        $('#marcaup').val(datos['marcas_idmarcas']);
+        $('#categoriaup').val(datos['categorias_idcategorias']);
+        $('#proveedorup').val(datos['proveedores_idproveedores']);
 
       }else{
         alertify.error("Algo salio Mal! :(");
@@ -164,7 +186,7 @@ function eliminarDatosProductos(id){
           success:function(response){
             if(response == 1){
                 $('#tabla').load('content/tabla_productos.php');
-                alertify.success('Eliminado Correctamente! :)')
+                alertify.success('Eliminado Correctamente! :)');
             }
             else{
               alertify.error('Algo Salió Mal!');
@@ -178,9 +200,24 @@ function eliminarDatosProductos(id){
 }
 
 function eliminarImg(idimg){
-   alertify.confirm('== Eliminar Registro ==', '¿Esta seguro de eliminar esta Imagen?', function(){
-         
-      },
-        function(){ alertify.error('Registro no Eliminado!')}
-      );
+  alertify.confirm('== Eliminar Registro ==', '¿Esta seguro de eliminar esta Imagen?', function(){
+     
+      
+     $.ajax({
+       type:"POST",
+       data:"idimg="+idimg,
+       url:"../controller/productos/deleteImg.php",
+       success:function (response) {
+         if(response==1){
+          alertify.success('Imagen Eliminada Correctamente!');
+          idurl= $('#idurl').val();
+          $('#imgs').load("../controller/productos/getUrlProducto.php",{id:idurl});
+         }else{
+          alertify.error(':(');
+         }
+       }
+     });
+  },
+    function(){ alertify.error('Imagen no Eliminada')}
+  );
 }

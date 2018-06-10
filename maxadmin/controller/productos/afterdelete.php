@@ -1,12 +1,15 @@
-<?php 
-	include "../../model/metodos.php";
-	$obj = new crud();
-	
-	$datos = $obj -> getUrlImg($_REQUEST['id']);
+<?php
+    include "../../model/metodos.php";
+    $obj = new crud();
 
-	$data = $datos->fetchAll();
- ?>
- <html>
+     /* == Recargar Pestaña Nuevamente == */
+     $datos = $obj -> getUrlImg($_REQUEST['id']);
+     $data = $datos->fetchAll();
+
+
+
+?>
+<html>
  	<body>
 		<div class="container">
 			<div class="row">

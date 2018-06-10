@@ -198,7 +198,7 @@
             </div>
             <div class="form-group col-md-9 mb-3">
               <label>Precio</label>
-              <input type="text" placeholder="$0.00 Precio" name="precioup" id="precioup" class="form-control">
+              <input type="text" placeholder="$0.00 Precio" onkeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" name="precioup" id="precioup" class="form-control">
             </div>
           </div>
           <div class="form-row">
@@ -206,7 +206,7 @@
               <label for="marcaup">Marca</label>
               <select class="form-control" name="marcaup" id="marcaup">
                 <?php while($row = $x->fetch()){ ?>
-                  <option value="<?php echo ($row['nombre']); ?>"><?php echo ($row['nombre']); ?></option>
+                  <option value="<?php echo ($row['idmarcas']); ?>"><?php echo ($row['nombre']); ?></option>
                 <?php } ?>
               </select>
             </div>
@@ -214,7 +214,9 @@
               <label for="categoriaup">Categoria</label>
               <select class="form-control" name="categoriaup" id="categoriaup">
                 <?php while($row = $y->fetch()){ ?>
-                  <option value="<?php echo ($row['nombre']); ?>"><?php echo ($row['nombre']); ?></option>
+                  <option value="<?php echo ($row['idcategorias']);?>">
+                      <?php echo ($row['nombre']);?>
+                  </option>
                 <?php } ?>
               </select>
             </div>
@@ -224,7 +226,7 @@
               <select class="form-control" name="proveedorup" id="proveedorup">
                
                 <?php while($row = $z->fetch()){ ?>
-                  <option value="<?php echo ($row['nombre']); ?>"><?php echo $row['nombre']; ?> - <?php echo $row['compania'] ?></option>
+                  <option value="<?php echo ($row['idproveedores']);?>"> <?php echo $row['nombre'];?> </option>
                 <?php } ?>
               </select>
             </div>

@@ -29,7 +29,7 @@
 
 		public function getUrlImg($id){
 			parent::conectar();
-			$sql ="SELECT idimg,url FROM img_productos WHERE productos_idproductos = :id";
+			$sql ="SELECT idimg,url,productos_idproductos FROM img_productos WHERE productos_idproductos = :id";
 			$rs = $this->pdo->prepare($sql);
 			$rs -> execute(array(":id"=>$id));
 			return $rs;
